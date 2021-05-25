@@ -105,11 +105,41 @@ header button {
   cursor: pointer;
 }
 
+/* -Search- */
+#search-bar {
+  -webkit-box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.335);
+  box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.335);
+
+  width: 47rem;
+  height: 3rem;
+
+  font-size: 2rem;
+
+  margin-top: 7rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+
+  -webkit-transition: -webkit-box-shadow 300ms;
+
+  transition: -webkit-box-shadow 300ms;
+
+  -o-transition: box-shadow 300ms;
+
+  transition: box-shadow 300ms;
+
+  transition: box-shadow 300ms, -webkit-box-shadow 300ms;
+}
+
+#search-bar:focus {
+  -webkit-box-shadow: 0 0 0.5rem 0.1rem rgb(12, 151, 54);
+  box-shadow: 0 0 0.5rem 0.1rem rgb(12, 151, 54);
+}
+
 /* -Styles-MusicList- */
 ul {
   width: 100%;
 
-  margin-top: 7rem;
+  margin: 1rem 0;
 
   display: -webkit-box;
 
@@ -335,8 +365,16 @@ li audio {
 /* -----------------Responsive-------------- */
 
 @media (max-width: 600px) {
+  #search-bar {
+    width: 90%;
+  }
+
   li {
-    width: calc(100% - 30px) !important;
+    width: calc(100% - 20px) !important;
+  }
+
+  li audio {
+    width: 100%;
   }
 
   #modal-container {

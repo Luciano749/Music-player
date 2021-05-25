@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Modal from "./Modal";
 import Musics from "./Musics";
 
-const MusicList = () => {
+const MusicList = (props) => {
   // open modal
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -15,14 +15,20 @@ const MusicList = () => {
     <>
       <ul>
         {Musics.length > 0 ? (
-          Musics.map((music, idx) => (
+          Musics.filter((music) => {
+            if (props.itemSearch === "") return music;
+            else if (
+              music.name.toLowerCase().includes(props.itemSearch.toLowerCase())
+            )
+              return music;
+          }).map((music, idx) => (
             <li key={idx}>
               <h3>{music.name}</h3>
               <audio src={music.src} controls></audio>
             </li>
           ))
         ) : (
-          <h1>Nenhuma música encontrada,adicione clicando no +</h1>
+          <h1>Nenhuma música encontrada, aperte no + para adicionar</h1>
         )}
       </ul>
 
